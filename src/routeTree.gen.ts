@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SluzbyRouteImport } from './routes/sluzby'
+import { Route as RealizaceRouteImport } from './routes/realizace'
+import { Route as ProdejnaRouteImport } from './routes/prodejna'
+import { Route as ONasRouteImport } from './routes/o-nas'
+import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SluzbyRoute = SluzbyRouteImport.update({
+  id: '/sluzby',
+  path: '/sluzby',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealizaceRoute = RealizaceRouteImport.update({
+  id: '/realizace',
+  path: '/realizace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdejnaRoute = ProdejnaRouteImport.update({
+  id: '/prodejna',
+  path: '/prodejna',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ONasRoute = ONasRouteImport.update({
+  id: '/o-nas',
+  path: '/o-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,96 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-nas': typeof ONasRoute
+  '/prodejna': typeof ProdejnaRoute
+  '/realizace': typeof RealizaceRoute
+  '/sluzby': typeof SluzbyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-nas': typeof ONasRoute
+  '/prodejna': typeof ProdejnaRoute
+  '/realizace': typeof RealizaceRoute
+  '/sluzby': typeof SluzbyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-nas': typeof ONasRoute
+  '/prodejna': typeof ProdejnaRoute
+  '/realizace': typeof RealizaceRoute
+  '/sluzby': typeof SluzbyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/kontakt'
+    | '/o-nas'
+    | '/prodejna'
+    | '/realizace'
+    | '/sluzby'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/kontakt' | '/o-nas' | '/prodejna' | '/realizace' | '/sluzby'
+  id:
+    | '__root__'
+    | '/'
+    | '/kontakt'
+    | '/o-nas'
+    | '/prodejna'
+    | '/realizace'
+    | '/sluzby'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KontaktRoute: typeof KontaktRoute
+  ONasRoute: typeof ONasRoute
+  ProdejnaRoute: typeof ProdejnaRoute
+  RealizaceRoute: typeof RealizaceRoute
+  SluzbyRoute: typeof SluzbyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sluzby': {
+      id: '/sluzby'
+      path: '/sluzby'
+      fullPath: '/sluzby'
+      preLoaderRoute: typeof SluzbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/realizace': {
+      id: '/realizace'
+      path: '/realizace'
+      fullPath: '/realizace'
+      preLoaderRoute: typeof RealizaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prodejna': {
+      id: '/prodejna'
+      path: '/prodejna'
+      fullPath: '/prodejna'
+      preLoaderRoute: typeof ProdejnaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/o-nas': {
+      id: '/o-nas'
+      path: '/o-nas'
+      fullPath: '/o-nas'
+      preLoaderRoute: typeof ONasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +151,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KontaktRoute: KontaktRoute,
+  ONasRoute: ONasRoute,
+  ProdejnaRoute: ProdejnaRoute,
+  RealizaceRoute: RealizaceRoute,
+  SluzbyRoute: SluzbyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
