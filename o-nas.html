@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O nás — Quercus nábytek</title>
+  <meta name="description" content="Truhlářská tradice z Zlína. O firmě Quercus nábytek.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["'Playfair Display'", "Georgia", "serif"],
+            sans: ["Inter", "system-ui", "sans-serif"],
+          },
+          colors: {
+            background: "#FAFAF8", foreground: "#2D2A26",
+            primary: { DEFAULT: "#8B5E3C", foreground: "#FAFAF8" },
+            accent: { DEFAULT: "#C4956A", foreground: "#FAFAF8" },
+            card: "#FFFFFF", border: "#E0DDD8",
+            muted: { DEFAULT: "#F5F0EB", foreground: "#7A726A" },
+            secondary: { DEFAULT: "#F5F0EB", foreground: "#2D2A26" },
+            input: "#E0DDD8", ring: "#C4956A",
+            destructive: { DEFAULT: "#EF4444", foreground: "#FAFAF8" },
+          },
+          boxShadow: {
+            soft: "0 10px 40px -15px rgba(139, 94, 60, 0.25)",
+            card: "0 4px 20px -8px rgba(139, 94, 60, 0.18)",
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    .gradient-hero { background: linear-gradient(135deg, rgba(60,45,30,0.85), rgba(139,94,60,0.55)); }
+    .gradient-warm { background: linear-gradient(180deg, #FAFAF8, #F5F0EB); }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+  </style>
+</head>
+<body class="bg-background text-foreground font-sans">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('header nav a').forEach(function(a) {
+        if (a.getAttribute('href').replace('./', '') === path) { a.classList.add('text-primary'); a.classList.remove('text-foreground/80'); }
+      });
+      document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+        if (a.getAttribute('href').replace('./', '') === path) { a.classList.add('text-primary','bg-muted'); }
+      });
+    });
+  </script>
+
+  <header class="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="./index.html" class="flex items-center gap-2">
+        <span class="font-display text-2xl font-bold tracking-tight text-primary">Quercus</span>
+        <span class="text-xs uppercase tracking-[0.2em] text-muted-foreground">nábytek</span>
+      </a>
+      <nav class="hidden items-center gap-8 md:flex">
+        <a href="./index.html" class="text-sm font-medium text-foreground/80 transition-colors hover:text-primary">Úvod</a>
+        <a href="./o-nas.html" class="text-sm font-medium text-foreground/80 transition-colors hover:text-primary">O nás</a>
+        <a href="./sluzby.html" class="text-sm font-medium text-foreground/80 transition-colors hover:text-primary">Služby</a>
+        <a href="./realizace.html" class="text-sm font-medium text-foreground/80 transition-colors hover:text-primary">Realizace</a>
+        <a href="./prodejna.html" class="text-sm font-medium text-foreground/80 transition-colors hover:text-primary">Prodejna</a>
+        <a href="./kontakt.html" class="text-sm font-medium text-foreground/80 transition-colors hover:text-primary">Kontakt</a>
+      </nav>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-foreground" aria-label="Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav id="mobile-menu" class="hidden flex-col gap-1 border-t border-border bg-background px-6 py-4 md:hidden">
+      <a href="./index.html" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">Úvod</a>
+      <a href="./o-nas.html" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">O nás</a>
+      <a href="./sluzby.html" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">Služby</a>
+      <a href="./realizace.html" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">Realizace</a>
+      <a href="./prodejna.html" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">Prodejna</a>
+      <a href="./kontakt.html" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="mx-auto max-w-5xl px-6 py-20">
+      <span class="text-xs font-semibold uppercase tracking-widest text-accent">O nás</span>
+      <h1 class="mt-3 font-display text-5xl font-bold">Truhlářská tradice ze Zlína</h1>
+      <p class="mt-8 text-lg text-muted-foreground">Quercus nábytek je rodinná firma věnující se výrobě nábytku na míru. Naším posláním je proměňovat prostory v místa, kde se lidem dobře žije, pracuje i odpočívá. Kombinujeme ruční truhlářské řemeslo s moderními technologiemi a důrazem na detail.</p>
+      <img src="./src/assets/showroom.jpg" alt="Naše dílna a prodejna" loading="lazy" width="1400" height="900" class="mt-12 rounded-3xl object-cover shadow-soft">
+      <div class="mt-16 grid gap-8 md:grid-cols-3">
+        <div class="rounded-2xl border border-border bg-card p-8 text-center shadow-card">
+          <div class="font-display text-5xl font-bold text-primary">25+</div>
+          <div class="mt-2 text-sm text-muted-foreground">let zkušeností</div>
+        </div>
+        <div class="rounded-2xl border border-border bg-card p-8 text-center shadow-card">
+          <div class="font-display text-5xl font-bold text-primary">500+</div>
+          <div class="mt-2 text-sm text-muted-foreground">realizovaných projektů</div>
+        </div>
+        <div class="rounded-2xl border border-border bg-card p-8 text-center shadow-card">
+          <div class="font-display text-5xl font-bold text-primary">100 %</div>
+          <div class="mt-2 text-sm text-muted-foreground">spokojených zákazníků</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mt-24 border-t border-border bg-secondary/40">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-3">
+      <div>
+        <div class="font-display text-2xl font-bold text-primary">Quercus nábytek</div>
+        <p class="mt-3 text-sm text-muted-foreground">Nábytek na míru pro Váš domov i veřejné interiéry. Tradice, kvalita a osobní přístup.</p>
+      </div>
+      <div class="space-y-3 text-sm">
+        <h4 class="font-semibold text-foreground">Kontakt</h4>
+        <p class="flex items-start gap-2 text-muted-foreground"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 text-accent"></i> Pasecká 2374, Zlín</p>
+        <p class="flex items-center gap-2 text-muted-foreground"><i data-lucide="phone" class="w-4 h-4 text-accent"></i> +420 577 000 000</p>
+        <p class="flex items-center gap-2 text-muted-foreground"><i data-lucide="mail" class="w-4 h-4 text-accent"></i> info@quercus-nabytek.cz</p>
+      </div>
+      <div class="space-y-2 text-sm">
+        <h4 class="font-semibold text-foreground">Navigace</h4>
+        <div class="flex flex-col gap-2 text-muted-foreground">
+          <a href="./sluzby.html" class="hover:text-primary">Služby</a>
+          <a href="./realizace.html" class="hover:text-primary">Realizace</a>
+          <a href="./prodejna.html" class="hover:text-primary">Prodejna</a>
+          <a href="./kontakt.html" class="hover:text-primary">Kontakt</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-border py-6 text-center text-xs text-muted-foreground">© 2024 Quercus nábytek. Všechna práva vyhrazena.</div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
